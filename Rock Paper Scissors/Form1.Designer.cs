@@ -137,7 +137,7 @@
             // btnStart
             // 
             this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(501, 264);
+            this.btnStart.Location = new System.Drawing.Point(492, 266);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(243, 100);
             this.btnStart.TabIndex = 8;
