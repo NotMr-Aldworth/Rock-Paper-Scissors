@@ -39,6 +39,12 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.lblVs = new System.Windows.Forms.Label();
             this.lblOutcome = new System.Windows.Forms.Label();
+            this.lblWins = new System.Windows.Forms.Label();
+            this.lblWintxt = new System.Windows.Forms.Label();
+            this.lblTies = new System.Windows.Forms.Label();
+            this.lblTietxt = new System.Windows.Forms.Label();
+            this.lblLoss = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgOpponent)).BeginInit();
             this.grpUserchoice.SuspendLayout();
@@ -145,7 +151,7 @@
             // btnStart
             // 
             this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(492, 266);
+            this.btnStart.Location = new System.Drawing.Point(508, 266);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(243, 100);
             this.btnStart.TabIndex = 8;
@@ -176,12 +182,86 @@
             this.lblOutcome.TabIndex = 10;
             this.lblOutcome.Text = "Who will win?";
             // 
+            // lblWins
+            // 
+            this.lblWins.AutoSize = true;
+            this.lblWins.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWins.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblWins.Location = new System.Drawing.Point(345, 305);
+            this.lblWins.Name = "lblWins";
+            this.lblWins.Size = new System.Drawing.Size(18, 20);
+            this.lblWins.TabIndex = 11;
+            this.lblWins.Text = "0";
+            // 
+            // lblWintxt
+            // 
+            this.lblWintxt.AutoSize = true;
+            this.lblWintxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWintxt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblWintxt.Location = new System.Drawing.Point(328, 284);
+            this.lblWintxt.Name = "lblWintxt";
+            this.lblWintxt.Size = new System.Drawing.Size(44, 20);
+            this.lblWintxt.TabIndex = 12;
+            this.lblWintxt.Text = "Wins";
+            // 
+            // lblTies
+            // 
+            this.lblTies.AutoSize = true;
+            this.lblTies.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTies.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblTies.Location = new System.Drawing.Point(390, 302);
+            this.lblTies.Name = "lblTies";
+            this.lblTies.Size = new System.Drawing.Size(20, 24);
+            this.lblTies.TabIndex = 13;
+            this.lblTies.Text = "0";
+            // 
+            // lblTietxt
+            // 
+            this.lblTietxt.AutoSize = true;
+            this.lblTietxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTietxt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblTietxt.Location = new System.Drawing.Point(378, 284);
+            this.lblTietxt.Name = "lblTietxt";
+            this.lblTietxt.Size = new System.Drawing.Size(38, 20);
+            this.lblTietxt.TabIndex = 14;
+            this.lblTietxt.Text = "Ties";
+            // 
+            // lblLoss
+            // 
+            this.lblLoss.AutoSize = true;
+            this.lblLoss.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoss.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblLoss.Location = new System.Drawing.Point(438, 302);
+            this.lblLoss.Name = "lblLoss";
+            this.lblLoss.Size = new System.Drawing.Size(20, 24);
+            this.lblLoss.TabIndex = 15;
+            this.lblLoss.Text = "0";
+            this.lblLoss.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblLoss.Click += new System.EventHandler(this.lblLoss_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(422, 285);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 20);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Losses";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblLoss);
+            this.Controls.Add(this.lblTietxt);
+            this.Controls.Add(this.lblTies);
+            this.Controls.Add(this.lblWintxt);
+            this.Controls.Add(this.lblWins);
             this.Controls.Add(this.lblOutcome);
             this.Controls.Add(this.lblVs);
             this.Controls.Add(this.btnStart);
@@ -215,6 +295,12 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Label lblVs;
         private System.Windows.Forms.Label lblOutcome;
+        private System.Windows.Forms.Label lblWins;
+        private System.Windows.Forms.Label lblWintxt;
+        private System.Windows.Forms.Label lblTies;
+        private System.Windows.Forms.Label lblTietxt;
+        private System.Windows.Forms.Label lblLoss;
+        private System.Windows.Forms.Label label2;
     }
 }
 

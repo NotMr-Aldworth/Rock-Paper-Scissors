@@ -12,7 +12,10 @@ namespace Rock_Paper_Scissors
 {
     public partial class Form1 : Form
     {
-        Random generator = new Random();
+        Random generator = new Random();            
+        int wins = 0;
+        int loss = 0;
+        int ties = 0;
         public Form1()
         {
             InitializeComponent();
@@ -44,6 +47,7 @@ namespace Rock_Paper_Scissors
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+
             int random = generator.Next(1, 4);
             if (random == 1)
                 imgOpponent.Image = Properties.Resources.dwayne_the_rock_johnson_gettyimages_1061959920;
@@ -52,9 +56,29 @@ namespace Rock_Paper_Scissors
             else if (random == 3)
                 imgOpponent.Image = Properties.Resources.scissors_clip_art_cartoon_vector_1509551;
             if (radRock.Checked && random == 1 || radPaper.Checked && random == 2 || radScissors.Checked && random == 3)
+            {
                 lblOutcome.Text = ("You have tied");
-            else if (radRock.Checked && random >= 2)
+                ties = ties + 1;
+                lblTies.Text = ($"{ties}");
+            }
+            else if (radRock.Checked && random == 3 || radPaper.Checked && random == 1 || radScissors.Checked && random == 2)
+            {
                 lblOutcome.Text = ("You have won!  Congratulations");
+                wins = wins + 1;
+                lblWins.Text = ($"{wins}");
+            }
+
+            else if (radRock.Checked && random == 2 || radPaper.Checked && random == 3 || radScissors.Checked && random == 1)
+            {
+                lblOutcome.Text = ("You have lost!  Congratulations");
+                loss = loss + 1;
+                lblLoss.Text = ($"{loss}");
+            }
+
+
+
+
+
 
 
 
@@ -63,6 +87,11 @@ namespace Rock_Paper_Scissors
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblLoss_Click(object sender, EventArgs e)
         {
 
         }
