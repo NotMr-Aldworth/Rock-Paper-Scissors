@@ -23,7 +23,8 @@ namespace Rock_Paper_Scissors
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            radRock.Checked = false;
+            imgPlayer.Image = Properties.Resources._2020_02_12_19_13_36;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -74,7 +75,11 @@ namespace Rock_Paper_Scissors
                 loss = loss + 1;
                 lblLoss.Text = ($"{loss}");
             }
-
+            radRock.Checked = false;
+            radScissors.Checked = false;
+            radPaper.Checked = false;
+            timerPlyr.Enabled = true;
+            timerOpp.Enabled = true;
 
 
 
@@ -94,6 +99,16 @@ namespace Rock_Paper_Scissors
         private void lblLoss_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void timerOpp_Tick(object sender, EventArgs e)
+        {
+            imgOpponent.Image = Properties.Resources._2020_02_12_19_13_36;
+        }
+
+        private void timerPlyr_Tick(object sender, EventArgs e)
+        {
+            imgPlayer.Image = Properties.Resources._2020_02_12_19_13_36;
         }
     }
 

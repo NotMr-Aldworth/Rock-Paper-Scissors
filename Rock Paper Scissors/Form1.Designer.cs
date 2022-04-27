@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.imgPlayer = new System.Windows.Forms.PictureBox();
             this.imgOpponent = new System.Windows.Forms.PictureBox();
             this.txtUser = new System.Windows.Forms.Label();
@@ -45,6 +46,8 @@
             this.lblTietxt = new System.Windows.Forms.Label();
             this.lblLoss = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.timerPlyr = new System.Windows.Forms.Timer(this.components);
+            this.timerOpp = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.imgPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgOpponent)).BeginInit();
             this.grpUserchoice.SuspendLayout();
@@ -96,6 +99,7 @@
             // radRock
             // 
             this.radRock.AutoSize = true;
+            this.radRock.Checked = true;
             this.radRock.Font = new System.Drawing.Font("Rockwell", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radRock.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.radRock.Location = new System.Drawing.Point(12, 12);
@@ -116,7 +120,6 @@
             this.radPaper.Name = "radPaper";
             this.radPaper.Size = new System.Drawing.Size(104, 22);
             this.radPaper.TabIndex = 5;
-            this.radPaper.TabStop = true;
             this.radPaper.Text = "Paper";
             this.radPaper.UseVisualStyleBackColor = true;
             this.radPaper.CheckedChanged += new System.EventHandler(this.radPaper_CheckedChanged_1);
@@ -130,7 +133,6 @@
             this.radScissors.Name = "radScissors";
             this.radScissors.Size = new System.Drawing.Size(98, 20);
             this.radScissors.TabIndex = 6;
-            this.radScissors.TabStop = true;
             this.radScissors.Text = "Scissors";
             this.radScissors.UseVisualStyleBackColor = true;
             this.radScissors.CheckedChanged += new System.EventHandler(this.radScissors_CheckedChanged);
@@ -187,7 +189,7 @@
             this.lblWins.AutoSize = true;
             this.lblWins.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWins.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblWins.Location = new System.Drawing.Point(345, 305);
+            this.lblWins.Location = new System.Drawing.Point(340, 287);
             this.lblWins.Name = "lblWins";
             this.lblWins.Size = new System.Drawing.Size(18, 20);
             this.lblWins.TabIndex = 11;
@@ -198,7 +200,7 @@
             this.lblWintxt.AutoSize = true;
             this.lblWintxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWintxt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblWintxt.Location = new System.Drawing.Point(328, 284);
+            this.lblWintxt.Location = new System.Drawing.Point(323, 266);
             this.lblWintxt.Name = "lblWintxt";
             this.lblWintxt.Size = new System.Drawing.Size(44, 20);
             this.lblWintxt.TabIndex = 12;
@@ -209,7 +211,7 @@
             this.lblTies.AutoSize = true;
             this.lblTies.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTies.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTies.Location = new System.Drawing.Point(390, 302);
+            this.lblTies.Location = new System.Drawing.Point(385, 284);
             this.lblTies.Name = "lblTies";
             this.lblTies.Size = new System.Drawing.Size(20, 24);
             this.lblTies.TabIndex = 13;
@@ -220,7 +222,7 @@
             this.lblTietxt.AutoSize = true;
             this.lblTietxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTietxt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTietxt.Location = new System.Drawing.Point(378, 284);
+            this.lblTietxt.Location = new System.Drawing.Point(373, 266);
             this.lblTietxt.Name = "lblTietxt";
             this.lblTietxt.Size = new System.Drawing.Size(38, 20);
             this.lblTietxt.TabIndex = 14;
@@ -231,7 +233,7 @@
             this.lblLoss.AutoSize = true;
             this.lblLoss.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoss.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblLoss.Location = new System.Drawing.Point(438, 302);
+            this.lblLoss.Location = new System.Drawing.Point(433, 284);
             this.lblLoss.Name = "lblLoss";
             this.lblLoss.Size = new System.Drawing.Size(20, 24);
             this.lblLoss.TabIndex = 15;
@@ -244,11 +246,21 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(422, 285);
+            this.label2.Location = new System.Drawing.Point(417, 267);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 20);
             this.label2.TabIndex = 16;
             this.label2.Text = "Losses";
+            // 
+            // timerPlyr
+            // 
+            this.timerPlyr.Interval = 5000;
+            this.timerPlyr.Tick += new System.EventHandler(this.timerPlyr_Tick);
+            // 
+            // timerOpp
+            // 
+            this.timerOpp.Interval = 5000;
+            this.timerOpp.Tick += new System.EventHandler(this.timerOpp_Tick);
             // 
             // Form1
             // 
@@ -301,6 +313,8 @@
         private System.Windows.Forms.Label lblTietxt;
         private System.Windows.Forms.Label lblLoss;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timerPlyr;
+        private System.Windows.Forms.Timer timerOpp;
     }
 }
 
